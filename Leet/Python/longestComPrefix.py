@@ -4,58 +4,50 @@
 
 #         for i in List:
 
+myList = ["ABCDEF", "ABCDEFG", "ABCDEFGH"]
 
+shortestitem = myList[0]
+minlen = len(myList[0])
 
-myList = ["Sofia", "Sof"]
-print("length of myList is", len(myList))
+#finding which word has the shortest length to iterate over
 
+for i in range(len(myList)):
+    length_i = len(myList[i])
 
-#for k in range(len(myList)):
+    if (length_i < minlen):
+        minlen = length_i
+        shortestitem = myList[i]
+
 
 letters = []
-common = True
-commons = []
 
-while common == True: 
-    for j in range(4):
-        for i in range(len(myList)):
-            letters.append(myList[i][j])
-            print("letters is", letters)
+# taking the i th letter of each word and comparing to see if they are equal. If equal, add to array of common letters
 
+for j in range(len(shortestitem)):
+    
+    for i in range(len(myList)):
 
-        for k in range(len(myList)-1):
-            if (letters[k] == letters[k+1]):
-                print("they're common and letters looks like", letters)
-                #commons.append(letters[k])
+        firstletter = myList[i][j]
+        letter = myList[0][j]
 
-            else: 
-                common = False
+        if (firstletter == letter):
+            common = True
+        
+        else: 
+            common = False
 
+    if (common == True):
+        letters.append(letter)
 
+print(f"Common prefix is is {letters}")
 
-# firstletter1 = myList[0][0]
-# firstletter2 = myList[1][0]
+commonstring = ""
 
-# secondletter1 = myList[0][2]
-# secondletter2 = myList[1][2]
+for i in range(len(letters)):
+    commonstring += letters[i]
 
-# letters.append(firstletter1)
-# letters.append(firstletter2)
+print(f"Common prefix is is {commonstring}")
 
-# if (letters[0] == letters[1]):
-#     print("the common letters are", letters)
-
-
-    # print(myList[j])
-    # print("length of", j, "is", len(myList[j]))
-
-    #make a new list with all the letter
-
-    # for j in range(len(myList[k])):
-    #     letter = myList[k][j]
-    #     letters.append(letter)
-    #     print("letter is", letter)
-    #     print("letters list is", letters)
 
 
 
