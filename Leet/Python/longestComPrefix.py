@@ -1,6 +1,6 @@
 class Solution: 
 
-    def longestCommonPrefix(self, strs: List[str]) -> str: 
+    def longestCommonPrefix(self, strs: List[str]) -> str:
 
         shortestitem = strs[0]
         minlen = len(strs[0])
@@ -17,33 +17,29 @@ class Solution:
 
         letters = []
 
-        # taking the i th letter of each word and comparing to see if they are equal. If equal, add to array of common letters
+        #compare letters to those in the shortest word
 
+        #iterating over how many letters there are
         for j in range(len(shortestitem)):
-            
+            common = True
+
+            #iterating over number of words
             for i in range(len(strs)):
 
-                firstletter = strs[i][j]
-                letter = strs[0][j]
-
-                if (firstletter == letter):
-                    common = True
-                
-                else: 
+                if strs[i][j] != shortestitem[j]:
                     common = False
+                    break
 
-            if (common == True):
-                letters.append(letter)
+            if common:
+                letters.append(shortestitem[j])
+            
+            else:
+                break
 
-        print(f"Common prefix is is {letters}")
 
-        commonstring = ""
-
-        for i in range(len(letters)):
-            commonstring += letters[i]
-
-        print(f"Common prefix is is {commonstring}")
+        commonstring = ''.join(letters)
 
         return commonstring
+
 
 
