@@ -1,53 +1,49 @@
-# class Solution: 
+class Solution: 
 
-#     def longestCommonPrefix(self, strs: List[str]) -> str: 
+    def longestCommonPrefix(self, strs: List[str]) -> str: 
 
-#         for i in List:
+        shortestitem = strs[0]
+        minlen = len(strs[0])
 
-myList = ["ABCDEF", "ABCDEFG", "ABCDEFGH"]
+        #finding which word has the shortest length to iterate over
 
-shortestitem = myList[0]
-minlen = len(myList[0])
+        for i in range(len(strs)):
+            length_i = len(strs[i])
 
-#finding which word has the shortest length to iterate over
-
-for i in range(len(myList)):
-    length_i = len(myList[i])
-
-    if (length_i < minlen):
-        minlen = length_i
-        shortestitem = myList[i]
+            if (length_i < minlen):
+                minlen = length_i
+                shortestitem = strs[i]
 
 
-letters = []
+        letters = []
 
-# taking the i th letter of each word and comparing to see if they are equal. If equal, add to array of common letters
+        # taking the i th letter of each word and comparing to see if they are equal. If equal, add to array of common letters
 
-for j in range(len(shortestitem)):
-    
-    for i in range(len(myList)):
+        for j in range(len(shortestitem)):
+            
+            for i in range(len(strs)):
 
-        firstletter = myList[i][j]
-        letter = myList[0][j]
+                firstletter = strs[i][j]
+                letter = strs[0][j]
 
-        if (firstletter == letter):
-            common = True
-        
-        else: 
-            common = False
+                if (firstletter == letter):
+                    common = True
+                
+                else: 
+                    common = False
 
-    if (common == True):
-        letters.append(letter)
+            if (common == True):
+                letters.append(letter)
 
-print(f"Common prefix is is {letters}")
+        print(f"Common prefix is is {letters}")
 
-commonstring = ""
+        commonstring = ""
 
-for i in range(len(letters)):
-    commonstring += letters[i]
+        for i in range(len(letters)):
+            commonstring += letters[i]
 
-print(f"Common prefix is is {commonstring}")
+        print(f"Common prefix is is {commonstring}")
 
-
+        return commonstring
 
 
